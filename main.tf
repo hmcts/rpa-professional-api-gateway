@@ -11,7 +11,7 @@ data "template_file" "papi_template" {
 resource "azurerm_template_deployment" "papi-managment" {
   template_body       = "${data.template_file.papi_template.rendered}"
   name                = "${local.name}"
-  resource_group_name = "${var.vnet_rg_name}"
+  resource_group_name = "core-infra-${var.env}"
   deployment_mode     = "Incremental"
 
   parameters = {

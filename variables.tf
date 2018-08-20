@@ -11,14 +11,6 @@ variable "subscription" {
   type = "string"
 }
 
-variable "vnet_rg_name" {
-  type = "string"
-}
-
-variable "vnet_name" {
-  type = "string"
-}
-
 variable "publisher_email" {
   type    = "string"
   default = "professional-api@hmcts.net"
