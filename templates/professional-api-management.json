@@ -154,9 +154,6 @@
                 "notificationSenderEmail": "[parameters('notification_sender_email')]",
                 "hostnameConfigurations": [],
                 "additionalLocations": null,
-                "virtualNetworkConfiguration": {
-                    "subnetResourceId": "[parameters('platform_papi_subnetResourceId')]"
-                },
                 "customProperties": {
                     "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10": "False",
                     "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11": "False",
