@@ -11,12 +11,6 @@ variable "subscription" {
   type = "string"
 }
 
-variable "source_range" {
-  type = "string"
-}
-
-variable "source_range_index" {}
-
 variable "vnet_rg_name" {
   type = "string"
 }
