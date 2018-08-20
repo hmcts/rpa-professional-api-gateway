@@ -2,4 +2,4 @@
 @Library("Infrastructure") _
 
 
-withInfrastructurePipeline('professional-api', params.sandbox, 'sandbox')
+withInfrastructurePipeline('professional-api', 'sandbox', 'sandbox')
