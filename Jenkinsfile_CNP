@@ -7,10 +7,10 @@ import uk.gov.hmcts.contino.Environment
 Environment environment = new Environment(env)
 
 onMaster {
-  withInfrastructurePipeline('payments', environment.nonProdName, 'nonprod')
-//  withInfrastructurePipeline('payments', environment.prodName, 'prod')
+  withInfrastructurePipeline('rpa-professional-api', environment.nonProdName, 'nonprod')
+//  withInfrastructurePipeline('rpa-professional-api', environment.prodName, 'prod')
 }
 
 onDemo {
-//  withInfrastructurePipeline('payments', environment.demoName, 'nonprod')
+//  withInfrastructurePipeline('rpa-professional-api', environment.demoName, 'nonprod')
 }
