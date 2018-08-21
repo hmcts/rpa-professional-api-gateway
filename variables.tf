@@ -13,7 +13,7 @@ variable "subscription" {
 
 variable "publisher_email" {
   type    = "string"
-  default = "professional-api@hmcts.net"
+  default = "alexis.gayte@hmcts.net"
 }
 
 variable "publisher_name" {

@@ -1,5 +1,5 @@
 locals {
-  name                  = "professional-api-${var.env}"
+  name                  = "professional-api-portal-${var.env}"
   platform_api_papi_sku = "${var.env == "prod" ? "Premium" : "Developer"}"
   
 }
@@ -11,7 +11,7 @@ data "template_file" "papi_template" {
 resource "azurerm_template_deployment" "papi-managment" {
   template_body       = "${data.template_file.papi_template.rendered}"
   name                = "${local.name}"
-  resource_group_name = "core-infra-${var.env}"
+  resource_group_name = "rpa-papi-${var.env}"
   deployment_mode     = "Incremental"
 
   parameters = {
