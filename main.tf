@@ -4,6 +4,12 @@ locals {
   
 }
 
+# Make sure the resource group exists
+resource "azurerm_resource_group" "rg" {
+  name     = "rpa-professional-api-${var.env}"
+  location = "${var.location_app}"
+}
+
 data "template_file" "papi_template" {
   template = "${file("${path.module}/templates/professional-api-management.json")}"
 }
