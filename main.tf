@@ -11,7 +11,7 @@ data "template_file" "papi_template" {
 resource "azurerm_template_deployment" "papi-managment" {
   template_body       = "${data.template_file.papi_template.rendered}"
   name                = "${local.name}"
-  resource_group_name = "rpa-papi-${var.env}"
+  resource_group_name = "rpa-professional-api-${var.env}"
   deployment_mode     = "Incremental"
 
   parameters = {
