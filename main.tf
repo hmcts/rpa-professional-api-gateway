@@ -1,5 +1,5 @@
 locals {
-  name                  = "professional-api-portal-${var.env}"
+  name                  = "rpa-professional-api-portal-${var.env}"
   platform_api_papi_sku = "${var.env == "prod" ? "Premium" : "Developer"}"
   
 }
