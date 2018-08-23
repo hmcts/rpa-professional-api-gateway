@@ -4,3 +4,4 @@
 
 withInfrastructurePipeline('rpa-professional-api', 'sandbox', 'sandbox')
 withInfrastructurePipeline('rpa-professional-api', 'sprod', 'sandbox')
+withInfrastructurePipeline('rpa-professional-api', 'saat', 'sandbox')
