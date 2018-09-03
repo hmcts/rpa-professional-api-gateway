@@ -22,6 +22,10 @@
             "defaultValue": "HMCTS Reform Platform Engineering",
             "type": "String"
         },
+        "notification_sender_email": {
+            "defaultValue": "professional-api-noreply@mail.windowsazure.com",
+            "type": "String"
+        },
         "policies_policy_name": {
             "defaultValue": "policy",
             "type": "String"
@@ -40,13 +44,14 @@
                 "capacity": 1
             },
             "name": "[parameters('platform_papi_name')]",
-            "apiVersion": "2018-01-01",
+            "apiVersion": "2017-03-01",
             "location": "[parameters('location')]",
             "tags": {},
             "scale": null,
             "properties": {
                 "publisherEmail": "[parameters('publisher_email')]",
                 "publisherName": "[parameters('publisher_name')]",
+                "notificationSenderEmail": "[parameters('notification_sender_email')]",
                 "hostnameConfigurations": [],
                 "additionalLocations": null,
                 "customProperties": {
