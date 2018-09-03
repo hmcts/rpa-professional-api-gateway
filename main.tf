@@ -24,7 +24,6 @@ resource "azurerm_template_deployment" "papi-managment" {
     location                           = "${var.location}"
     publisher_email                    = "${var.publisher_email}"
     publisher_name                     = "${var.publisher_name}"
-    notification_sender_email          = "${var.notification_sender_email}"
     env                                = "${var.env}"
     platform_papi_name                 = "${local.name}"
     platform_papi_sku                  = "${local.platform_api_papi_sku}"
