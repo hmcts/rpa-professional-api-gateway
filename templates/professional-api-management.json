@@ -30,6 +30,22 @@
             "defaultValue": "policy",
             "type": "String"
         },
+        "platform_papi_infra": {
+            "defaultValue": "",
+            "type": "String"
+        },
+        "platform_papi_vnet": {
+            "defaultValue": "",
+            "type": "String"
+        },
+        "platform_papi_snet": {
+            "defaultValue": "",
+            "type": "String"
+        },
+        "subscription_id": {
+            "defaultValue": "",
+            "type": "String"
+        },
         "platform_papi_sku": {
             "defaultValue": "Developer",
             "type": "String"
@@ -54,6 +70,9 @@
                 "notificationSenderEmail": "[parameters('notification_sender_email')]",
                 "hostnameConfigurations": [],
                 "additionalLocations": null,
+                "virtualNetworkConfiguration": {
+                    "subnetResourceId": "[concat('/subscriptions/',parameters('subscription_id'),'/resourceGroups/',parameters('platform_papi_infra'),'/providers/Microsoft.Network/virtualNetworks/',parameters('platform_papi_vnet'),'/subnets/',parameters('platform_papi_snet'))]"
+                },
                 "customProperties": {
                     "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10": "False",
                     "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11": "False",
@@ -63,8 +82,8 @@
                     "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11": "False",
                     "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30": "False"
                 },
-                "virtualNetworkType": "External",
-                "certificates": null
+             	"virtualNetworkType": "External",
+            	"certificates": null
             },
             "dependsOn": []
         },

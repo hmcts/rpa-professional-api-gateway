@@ -26,6 +26,10 @@ resource "azurerm_template_deployment" "papi-managment" {
     publisher_name                     = "${var.publisher_name}"
     env                                = "${var.env}"
     platform_papi_name                 = "${local.name}"
+    platform_papi_infra   			   = "core-infra-${var.env}"
+    platform_papi_vnet   			   = "core-infra-vnet-${var.env}"
+    platform_papi_snet   			   = "core-infra-subnet-apimgmt-${var.env}"
+    subscription_id                    = "${var.subscription_id}"
     platform_papi_sku                  = "${local.platform_api_papi_sku}"
   }
 }
