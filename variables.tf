@@ -11,6 +11,10 @@ variable "subscription" {
   type = "string"
 }
 
+variable "subscription_id" {
+  type = "string"
+}
+
 variable "publisher_email" {
   type    = "string"
   default = "alexis.gayte@hmcts.net"
