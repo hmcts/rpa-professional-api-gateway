@@ -152,7 +152,7 @@
             "resources": [
 				{
 				  "type": "Microsoft.ApiManagement/service/products/groups",
-				  "name": "sandbox/developer",
+				  "name": "sandbox/developers",
 				  "apiVersion": "2018-01-01"
 				}
             ]
