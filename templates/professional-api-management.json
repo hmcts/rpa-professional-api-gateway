@@ -148,13 +148,21 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
+            ],
+            "resources": [
+        	    {
+        	        "type": "Microsoft.ApiManagement/service/products/groups",
+		            "name": "[concat(parameters('products_sandbox'), '/developers')]",
+	                "apiVersion": "2017-03-01"
+                },
+                {
+        	        "type": "Microsoft.ApiManagement/service/products/groups",
+		            "name": "[concat(parameters('products_sandbox'), '/guests')]",
+	                "apiVersion": "2017-03-01"
+                }
             ]
+            
         },
-		{
-		    "type": "Microsoft.ApiManagement/service/products/groups",
-		    "name": "[concat(parameters('products_sandbox'), '/developers')]",
-	        "apiVersion": "2018-01-01"
-		},
         {
             "type": "Microsoft.ApiManagement/service/products",
             "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_prod'))]",
