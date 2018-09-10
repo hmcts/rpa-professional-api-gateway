@@ -149,7 +149,7 @@
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
             ],
-            "resouces": [
+            "resources": [
             	{
 				  "name": "guests",
 				  "type": "Microsoft.ApiManagement/service/products/groups",
@@ -179,7 +179,7 @@
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
             ],
-            "resouces": [
+            "resources": [
             	{
 				  "name": "guests",
 				  "type": "Microsoft.ApiManagement/service/products/groups",
