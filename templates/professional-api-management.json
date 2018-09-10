@@ -151,7 +151,7 @@
             ],
             "resources": [
 				{
-				  "name": "developers",
+				  "name": "developer",
 				  "type": "Microsoft.ApiManagement/service/products/groups",
 				  "apiVersion": "2018-01-01"
 				}
@@ -173,18 +173,6 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
-            ],
-            "resources": [
-            	{
-				  "name": "guests",
-				  "type": "Microsoft.ApiManagement/service/products/groups",
-				  "apiVersion": "2018-01-01"
-				},
-				{
-				  "name": "developers",
-				  "type": "Microsoft.ApiManagement/service/products/groups",
-				  "apiVersion": "2018-01-01"
-				}
             ]
         }
     ]
