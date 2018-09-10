@@ -155,7 +155,7 @@
 		                        "[resourceId('Microsoft.ApiManagement/service/products', parameters('platform_papi_name'), parameters('products_sandbox'))]"
 		                     ]
 		                },
-		                {		        	    {
+		                {
 		        	        "type": "Microsoft.ApiManagement/service/products/groups",
 				            "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_sandbox'), '/guests')]",
 			                "apiVersion": "2017-03-01",
@@ -165,7 +165,7 @@
 		                }
 		            ]
 		        }
-            ]
+            ],
             "dependsOn": []
         },
         {
