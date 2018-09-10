@@ -152,7 +152,7 @@
             "resources": [
         	    {
         	        "type": "Microsoft.ApiManagement/service/products/groups",
-		            "name": "developers",
+		            "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_sandbox'), '/developers')]",
 	                "apiVersion": "2017-03-01"
                 }
             ]
