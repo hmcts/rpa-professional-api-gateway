@@ -155,7 +155,7 @@
 		            "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_sandbox'), '/developers')]",
 	                "apiVersion": "2017-03-01",
 	                "dependsOn": [
-                        "[resourceId('Microsoft.ApiManagement/service/products', parameters('products_sandbox'))]"
+                        "[resourceId('Microsoft.ApiManagement/service/products', parameters('platform_papi_name'), parameters('products_sandbox'))]"
                      ]
                 }
             ]
