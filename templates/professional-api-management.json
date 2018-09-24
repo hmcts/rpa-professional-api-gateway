@@ -105,8 +105,8 @@
                 "terms": "",
                 "subscriptionRequired": true,
                 "approvalRequired": false,
-                "subscriptionsLimit": 1,
-                "state": "published"
+                "subscriptionsLimit": 1
+/*                 "state": "published" */
             },
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
