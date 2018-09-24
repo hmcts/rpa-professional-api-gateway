@@ -105,7 +105,8 @@
                 "terms": "",
                 "subscriptionRequired": true,
                 "approvalRequired": false,
-                "subscriptionsLimit": 1
+                "subscriptionsLimit": 1,
+                "state": "published"
             },
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
@@ -165,32 +166,6 @@
                 }
             ]
         },
-        {
-            "type": "Microsoft.ApiManagement/service/products",
-            "name": "[concat(parameters('platform_papi_name'), '/starter')]",
-            "apiVersion": "2017-03-01",
-            "scale": null,
-            "properties": {
-                "displayName": "starter-currently-unpublish-need-to-remove",
-                "state": "unPublished"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
-            ]
- 		},
- 		{
-            "type": "Microsoft.ApiManagement/service/products",
-            "name": "[concat(parameters('platform_papi_name'), '/unlimited')]",
-            "apiVersion": "2017-03-01",
-            "scale": null,
-            "properties": {
-                "displayName": "unlimited-currently-unpublish-need-to-remove",
-                "state": "unPublished"
-            },
-            "dependsOn": [
-                "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
-            ]
- 		},
         {
             "type": "Microsoft.ApiManagement/service/policies",
             "name": "[concat(parameters('platform_papi_name'), '/', parameters('policies_policy_name'))]",
