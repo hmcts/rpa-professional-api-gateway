@@ -31,10 +31,10 @@ resource "azurerm_template_deployment" "papi-managment" {
     platform_papi_snet   	        		   = "core-infra-subnet-apimgmt-${var.env}"
     subscription_id                            = "${var.subscription_id}"
     platform_papi_sku                          = "${local.platform_api_papi_sku}"
-    oauth_token_endpoint                       = "www.nowhere.com"
+    oauth_token_endpoint                       = "https://www.nowhere.com"
     oauth_authorization_endpoint_redirect_uri  = ""
-    oauth_client_registration_endpoint         = "www.nowhere.com"
-    oauth_authorization_endpoint               = "www.nowhere.com"
+    oauth_client_registration_endpoint         = "https://www.nowhere.com"
+    oauth_authorization_endpoint               = "https://www.nowhere.com"
     oauth_client_id                            = "papi"
     oauth_client_secret                        = "xxxxxxxxx"
   }
