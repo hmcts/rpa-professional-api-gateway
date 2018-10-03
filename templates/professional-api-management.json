@@ -30,6 +30,9 @@
             "defaultValue": "policy",
             "type": "String"
         },
+        "oauth_client_registration_endpoint": {
+            "type": "string"
+        },
         "oauth_token_endpoint": {
             "type": "string"
         },
@@ -201,7 +204,7 @@
             "properties": {
                 "displayName": "sidam",
                 "description": null,
-                "clientRegistrationEndpoint": "",
+                "clientRegistrationEndpoint": "[parameters('oauth_client_registration_endpoint')]",
                 "authorizationEndpoint": "[concat(parameters('oauth_authorization_endpoint'),'?response_type=code&client_id=',parameters('oauth_client_id'),'&redirect_uri=',parameters('oauth_authorization_endpoint_redirect_uri'))]",
                 "authorizationMethods": [
                 "GET",
