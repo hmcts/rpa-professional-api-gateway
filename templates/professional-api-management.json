@@ -216,11 +216,11 @@
             "tokenBodyParameters": [
                 {
                 "name": "client_id",
-                "value": "parameters('oauth_client_id')"
+                "value": "[parameters('oauth_client_id')]"
                 },
                 {
                 "name": "client_secret",
-                "value": "parameters('oauth_client_secret')"
+                "value": "[parameters('oauth_client_secret')]"
                 }
             ],
             "tokenEndpoint": "[parameters('oauth_token_endpoint')]",
@@ -233,8 +233,8 @@
               "authorizationHeader",
               "query"
             ],
-            "clientId": "parameters('oauth_client_id')",
-            "clientSecret": "parameters('oauth_client_secret')",
+            "clientId": "[parameters('oauth_client_id')]",
+            "clientSecret": "[parameters('oauth_client_secret')]",
             "resourceOwnerUsername": null,
             "resourceOwnerPassword": null
           },
