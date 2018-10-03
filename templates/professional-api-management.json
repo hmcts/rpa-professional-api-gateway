@@ -199,7 +199,7 @@
             "apiVersion": "2018-01-01",
             "scale": null,
             "properties": {
-                "displayName": "[sidam]",
+                "displayName": "sidam",
                 "description": null,
                 "clientRegistrationEndpoint": "",
                 "authorizationEndpoint": "[concat(parameters('oauth_authorization_endpoint'),'?response_type=code&client_id=',parameters('oauth_client_id'),'&redirect_uri=',parameters('oauth_authorization_endpoint_redirect_uri'))]",
