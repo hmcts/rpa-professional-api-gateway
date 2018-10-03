@@ -30,6 +30,21 @@
             "defaultValue": "policy",
             "type": "String"
         },
+        "oauth_token_endpoint": {
+            "type": "string"
+        },
+        "oauth_authorization_endpoint_redirect_uri": {
+            "type": "string"
+        },
+        "oauth_authorization_endpoint": {
+            "type": "string"
+        },
+        "oauth_client_id": {
+            "type": "string"
+        },
+        "oauth_client_secret": {
+            "type": "string"
+        },
         "platform_papi_infra": {
             "defaultValue": "",
             "type": "String"
@@ -90,7 +105,7 @@
                     "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11": "False",
                     "Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30": "False"
                 },
-             	"virtualNetworkType": "External"
+                 "virtualNetworkType": "External"
             },
             "dependsOn": []
         },
@@ -112,19 +127,19 @@
                 "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
             ],
             "resources": [
-        	    {
-        	        "type": "Microsoft.ApiManagement/service/products/groups",
-		            "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_public'), '/developers')]",
-	                "apiVersion": "2017-03-01",
-	                "dependsOn": [
+                {
+                    "type": "Microsoft.ApiManagement/service/products/groups",
+                    "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_public'), '/developers')]",
+                    "apiVersion": "2017-03-01",
+                    "dependsOn": [
                         "[resourceId('Microsoft.ApiManagement/service/products', parameters('platform_papi_name'), parameters('products_public'))]"
                      ]
                 },
                 {
-        	        "type": "Microsoft.ApiManagement/service/products/groups",
-		            "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_public'), '/guests')]",
-	                "apiVersion": "2017-03-01",
-	                "dependsOn": [
+                    "type": "Microsoft.ApiManagement/service/products/groups",
+                    "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_public'), '/guests')]",
+                    "apiVersion": "2017-03-01",
+                    "dependsOn": [
                         "[resourceId('Microsoft.ApiManagement/service/products', parameters('platform_papi_name'), parameters('products_public'))]"
                      ]
                 }
@@ -148,19 +163,19 @@
                 "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
             ],
             "resources": [
-        	    {
-        	        "type": "Microsoft.ApiManagement/service/products/groups",
-		            "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_private'), '/developers')]",
-	                "apiVersion": "2017-03-01",
-	                "dependsOn": [
+                {
+                    "type": "Microsoft.ApiManagement/service/products/groups",
+                    "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_private'), '/developers')]",
+                    "apiVersion": "2017-03-01",
+                    "dependsOn": [
                         "[resourceId('Microsoft.ApiManagement/service/products', parameters('platform_papi_name'), parameters('products_private'))]"
                      ]
                 },
                 {
-        	        "type": "Microsoft.ApiManagement/service/products/groups",
-		            "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_private'), '/guests')]",
-	                "apiVersion": "2017-03-01",
-	                "dependsOn": [
+                    "type": "Microsoft.ApiManagement/service/products/groups",
+                    "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_private'), '/guests')]",
+                    "apiVersion": "2017-03-01",
+                    "dependsOn": [
                         "[resourceId('Microsoft.ApiManagement/service/products', parameters('platform_papi_name'), parameters('products_private'))]"
                      ]
                 }
@@ -177,6 +192,52 @@
             "dependsOn": [
                 "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
             ]
+        },
+        {
+            "type": "Microsoft.ApiManagement/service/authorizationServers",
+            "name": "[concat(parameters('platform_papi_name'), '/sidam')]",
+            "apiVersion": "2018-01-01",
+            "scale": null,
+            "properties": {
+                "displayName": "[sidam]",
+                "description": null,
+                "clientRegistrationEndpoint": "",
+                "authorizationEndpoint": "[concat(parameters('oauth_authorization_endpoint'),'?response_type=code&client_id=',parameters('oauth_client_id'),'&redirect_uri=',parameters('oauth_authorization_endpoint_redirect_uri'))]",
+                "authorizationMethods": [
+                "GET",
+                "POST"],
+                "clientAuthenticationMethod": [
+                       "Basic",
+                       "Body"
+                ],
+            "tokenBodyParameters": [
+                {
+                "name": "client_id",
+                "value": "parameters('oauth_client_id')"
+                },
+                {
+                "name": "client_secret",
+                "value": "parameters('oauth_client_secret')"
+                }
+            ],
+            "tokenEndpoint": "parameters('oauth_token_endpoint')",
+            "supportState": false,
+            "defaultScope": null,
+            "grantTypes": [
+              "authorizationCode"
+            ],
+            "bearerTokenSendingMethods": [
+              "authorizationHeader",
+              "query"
+            ],
+            "clientId": "parameters('oauth_client_id')",
+            "clientSecret": "parameters('oauth_client_secret')",
+            "resourceOwnerUsername": null,
+            "resourceOwnerPassword": null
+          },
+          "dependsOn": [
+            "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
+          ]
         }
     ]
 }
