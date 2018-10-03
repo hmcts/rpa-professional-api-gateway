@@ -223,7 +223,7 @@
                 "value": "parameters('oauth_client_secret')"
                 }
             ],
-            "tokenEndpoint": "parameters('oauth_token_endpoint')",
+            "tokenEndpoint": "[parameters('oauth_token_endpoint')]",
             "supportState": false,
             "defaultScope": null,
             "grantTypes": [
