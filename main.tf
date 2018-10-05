@@ -1,7 +1,6 @@
 locals {
   name                  = "rpa-professional-api-portal-${var.env}"
   platform_api_papi_sku = "${var.env == "prod" ? "Premium" : "Developer"}"
-  
 }
 
 # Make sure the resource group exists
@@ -23,7 +22,6 @@ resource "azurerm_template_deployment" "papi-managment" {
   parameters = {
     location                                   = "${var.location}"
     publisher_email                            = "${var.publisher_email}"
-    publisher_name                             = "${var.publisher_name}"
     env                                        = "${var.env}"
     platform_papi_name                         = "${local.name}"
     platform_papi_infra           			   = "core-infra-${var.env}"
@@ -31,11 +29,11 @@ resource "azurerm_template_deployment" "papi-managment" {
     platform_papi_snet   	        		   = "core-infra-subnet-apimgmt-${var.env}"
     subscription_id                            = "${var.subscription_id}"
     platform_papi_sku                          = "${local.platform_api_papi_sku}"
-    oauth_token_endpoint                       = "https://www.nowhere.com"
-    oauth_authorization_endpoint_redirect_uri  = ""
-    oauth_client_registration_endpoint         = "https://www.nowhere.com"
-    oauth_authorization_endpoint               = "https://www.nowhere.com"
-    oauth_client_id                            = "papi"
-    oauth_client_secret                        = "xxxxxxxxx"
+    oauth_token_endpoint                       = "${var.oauth_token_endpoint}"
+    oauth_authorization_endpoint_redirect_uri  = "${var.oauth_authorization_endpoint_redirect_uri}"
+    oauth_client_registration_endpoint         = "${var.oauth_client_registration_endpoint}"
+    oauth_authorization_endpoint               = "${var.oauth_authorization_endpoint}"
+    oauth_client_id                            = "${var.oauth_client_id}"
+    oauth_client_secret                        = "${var.oauth_client_secret}"
   }
 }
