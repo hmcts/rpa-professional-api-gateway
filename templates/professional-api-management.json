@@ -115,30 +115,6 @@
   },
   {
     "type": "Microsoft.ApiManagement/service/products",
-    "name": "[concat(parameters('platform_papi_name'), '/starter')]",
-    "apiVersion": "2017-03-01",
-    "properties": {
-      "displayName": "Azure Default Starter",
-      "state": "notPublished"
-    },
-    "dependsOn": [
-      "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
-    ]
-  },
-  {
-    "type": "Microsoft.ApiManagement/service/products",
-    "name": "[concat(parameters('platform_papi_name'), '/unlimited')]",
-    "apiVersion": "2017-03-01",
-    "properties": {
-      "displayName": "Azure Default Starter",
-      "state": "notPublished"
-    },
-    "dependsOn": [
-      "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
-    ]
-  },
-  {
-    "type": "Microsoft.ApiManagement/service/products",
     "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_public'))]",
     "apiVersion": "2017-03-01",
     "scale": null,
