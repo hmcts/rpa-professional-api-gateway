@@ -81,8 +81,7 @@
   
   
   },
-  "resources": [
-  {
+  "resources": [{
     "type": "Microsoft.ApiManagement/service",
     "sku": {
       "name": "[parameters('platform_papi_sku')]",
@@ -243,5 +242,5 @@
     "dependsOn": [
       "[resourceId('Microsoft.ApiManagement/service', parameters('platform_papi_name'))]"
     ]
-  }
+  }]
 }
