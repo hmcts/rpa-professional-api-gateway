@@ -118,6 +118,7 @@
     "name": "[concat(parameters('platform_papi_name'), '/starter')]",
     "apiVersion": "2017-03-01",
     "properties": {
+      "displayName": "Azure Default Starter",
       "state": "notPublished"
     },
     "dependsOn": [
@@ -129,6 +130,7 @@
     "name": "[concat(parameters('platform_papi_name'), '/unlimited')]",
     "apiVersion": "2017-03-01",
     "properties": {
+      "displayName": "Azure Default Starter",
       "state": "notPublished"
     },
     "dependsOn": [
