@@ -19,6 +19,10 @@ data "azurerm_key_vault_secret" "oauth2_secret" {
     vault_uri = "${data.azurerm_key_vault.key_vault.vault_uri}"
 }
 
+data "azurerm_key_vault_secret" "publisher_email" {
+    name = "papi-portal-publisher-email"
+    vault_uri = "${data.azurerm_key_vault.key_vault.vault_uri}"
+}
 
 # Make sure the resource group exists
 resource "azurerm_resource_group" "rg" {
@@ -38,7 +42,7 @@ resource "azurerm_template_deployment" "papi-managment" {
 
   parameters = {
     location                                   = "${var.location}"
-    publisher_email                            = "${var.publisher_email}"
+    publisher_email                            = "${data.azurerm_key_vault_secret.publisher_email.value}"
     env                                        = "${var.env}"
     platform_papi_name                         = "${local.name}"
     platform_papi_infra           			   = "core-infra-${var.env}"
