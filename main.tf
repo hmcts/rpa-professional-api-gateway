@@ -3,6 +3,23 @@ locals {
   platform_api_papi_sku = "${var.env == "prod" ? "Premium" : "Developer"}"
 }
 
+
+data "azurerm_key_vault" "key_vault" {
+    name = "${local.shared_vault_name}"
+    resource_group_name = "${local.shared_vault_name}"
+}
+
+data "azurerm_key_vault_secret" "oauth2_client" {
+    name = "papi-oauth2-client-id"
+    vault_uri = "${data.azurerm_key_vault.key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "oauth2_secret" {
+    name = "papi-oauth2-client-key"
+    vault_uri = "${data.azurerm_key_vault.key_vault.vault_uri}"
+}
+
+
 # Make sure the resource group exists
 resource "azurerm_resource_group" "rg" {
   name     = "rpa-professional-api-${var.env}"
@@ -33,7 +50,7 @@ resource "azurerm_template_deployment" "papi-managment" {
     oauth_authorization_endpoint_redirect_uri  = "${var.oauth_authorization_endpoint_redirect_uri}"
     oauth_client_registration_endpoint         = "${var.oauth_client_registration_endpoint}"
     oauth_authorization_endpoint               = "${var.oauth_authorization_endpoint}"
-    oauth_client_id                            = "${var.oauth_client_id}"
-    oauth_client_secret                        = "${var.oauth_client_secret}"
+    oauth_client_id                            = "${data.azurerm_key_vault_secret.oauth2_client.value}"
+    oauth_client_secret                        = "${data.azurerm_key_vault_secret.oauth2_secret.value}"
   }
 }
