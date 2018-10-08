@@ -5,8 +5,8 @@ locals {
 
 
 data "azurerm_key_vault" "key_vault" {
-    name = "${local.shared_vault_name}"
-    resource_group_name = "${local.shared_vault_name}"
+    name = "rpa-${var.env}"
+    resource_group_name = "rpa-${var.env}"
 }
 
 data "azurerm_key_vault_secret" "oauth2_client" {
