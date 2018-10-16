@@ -87,7 +87,7 @@
       "name": "[parameters('platform_papi_sku')]",
       "capacity": 1},
     "name": "[parameters('platform_papi_name')]",
-    "apiVersion": "2017-03-01",
+    "apiVersion": "2018-01-01",
     "location": "[parameters('location')]",
     "tags": {},
     "scale": null,
@@ -116,7 +116,7 @@
   {
     "type": "Microsoft.ApiManagement/service/products",
     "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_public'))]",
-    "apiVersion": "2017-03-01",
+    "apiVersion": "2018-01-01",
     "scale": null,
     "properties": {
       "displayName": "Public API",
@@ -134,7 +134,7 @@
       {
         "type": "Microsoft.ApiManagement/service/products/groups",
         "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_public'), '/developers')]",
-        "apiVersion": "2017-03-01",
+        "apiVersion": "2018-01-01",
         "dependsOn": [
           "[resourceId('Microsoft.ApiManagement/service/products', parameters('platform_papi_name'), parameters('products_public'))]"
         ]
@@ -142,7 +142,7 @@
       {
         "type": "Microsoft.ApiManagement/service/products/groups",
         "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_public'), '/guests')]",
-        "apiVersion": "2017-03-01",
+        "apiVersion": "2018-01-01",
         "dependsOn": [
           "[resourceId('Microsoft.ApiManagement/service/products', parameters('platform_papi_name'), parameters('products_public'))]"
         ]
@@ -152,7 +152,7 @@
   {
     "type": "Microsoft.ApiManagement/service/products",
     "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_private'))]",
-    "apiVersion": "2017-03-01",
+    "apiVersion": "2018-01-01",
     "scale": null,
     "properties": {
       "displayName": "Private API",
@@ -170,7 +170,7 @@
       {
         "type": "Microsoft.ApiManagement/service/products/groups",
         "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_private'), '/developers')]",
-        "apiVersion": "2017-03-01",
+        "apiVersion": "2018-01-01",
         "dependsOn": [
           "[resourceId('Microsoft.ApiManagement/service/products', parameters('platform_papi_name'), parameters('products_private'))]"
         ]
@@ -178,7 +178,7 @@
       {
         "type": "Microsoft.ApiManagement/service/products/groups",
         "name": "[concat(parameters('platform_papi_name'), '/', parameters('products_private'), '/guests')]",
-        "apiVersion": "2017-03-01",
+        "apiVersion": "2018-01-01",
         "dependsOn": [
           "[resourceId('Microsoft.ApiManagement/service/products', parameters('platform_papi_name'), parameters('products_private'))]"
         ]
@@ -188,7 +188,7 @@
   {
     "type": "Microsoft.ApiManagement/service/policies",
     "name": "[concat(parameters('platform_papi_name'), '/', parameters('policies_policy_name'))]",
-    "apiVersion": "2017-03-01",
+    "apiVersion": "2018-01-01",
     "scale": null,
     "properties": {
       "policyContent": "[concat('<!--\r\n  IMPORTANT:\r\n  - Policy elements can appear only within the <inbound>, <outbound>, <backend> section elements.\r\n  - Only the <forward-request> ', parameters('policies_policy_name'),' element can appear within the <backend> section element.\r\n  - To apply a ', parameters('policies_policy_name'),' to the incoming request (before it is forwarded to the backend service), place a corresponding ', parameters('policies_policy_name'),' element within the <inbound> section element.\r\n  - To apply a ', parameters('policies_policy_name'),' to the outgoing response (before it is sent back to the caller), place a corresponding ', parameters('policies_policy_name'),' element within the <outbound> section element.\r\n  - To add a ', parameters('policies_policy_name'),' position the cursor at the desired insertion point and click on the round button associated with the ', parameters('policies_policy_name'),'.\r\n  - To remove a ', parameters('policies_policy_name'),', delete the corresponding ', parameters('policies_policy_name'),' statement from the ', parameters('policies_policy_name'),' document.\r\n  - Policies are applied in the order of their appearance, from the top down.\r\n-->\r\n<policies>\r\n  <inbound />\r\n  <backend>\r\n  <forward-request />\r\n  </backend>\r\n  <outbound />\r\n</policies>')]"
