@@ -36,8 +36,8 @@ module "papi-managment" {
   
   location                                   = "${var.location}"
   env                                        = "${var.env}"
-  vnet_rg_name                               = "core-infra-vnet-${var.env}"
-  api_subnet_id                              = "core-infra-subnet-apimgmt-${var.env}"
+  vnet_rg_name                               = "core-infra-vnet-${local.local_env}"
+  api_subnet_id                              = "core-infra-subnet-apimgmt-${local.local_env}"
   publisher_email                            = "${data.azurerm_key_vault_secret.publisher_email.value}"
   # publisher_name
   # notification_sender_email
