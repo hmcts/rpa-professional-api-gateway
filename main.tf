@@ -1,7 +1,7 @@
 locals {
   name                  = "rpa-professional-api-portal-${var.env}"
   platform_api_papi_sku = "${var.env == "prod" ? "Premium" : "Developer"}"
-  local_env = "${(var.env == "preview" || var.env == "spreview") ? (var.env == "preview" ) ? "aat" : "saat" : var.env}"
+  local_env = "${(var.env == "preview" || var.env == "spreview" || var.env == "sandbox") ? ((var.env == "preview" ) ? "aat" : "saat") : var.env}"
 }
 
 
