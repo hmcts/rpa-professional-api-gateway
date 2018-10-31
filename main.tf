@@ -31,7 +31,7 @@ resource "azurerm_resource_group" "rg" {
   location = "${var.location}"
 }
 
-module "api-managment" {
+module "papi-managment" {
   source              = "git@github.com:TabbyC/cnp-module-api-mgmt?ref=remove_echo_api"
   
   location                                   = "${var.location}"
