@@ -31,13 +31,22 @@ resource "azurerm_resource_group" "rg" {
   location = "${var.location}"
 }
 
+module "papi-vnet" {
+  source = "git@github.com:hmcts/cnp-module-vnet?ref=master"
+
+  location = "${var.location}"
+  env = "${var.env}"
+  name = "rpa-professional-api-portal-${var.env}"
+  source_range = "10.100.128.0/18" # needs to be moved to .tfvars files for each env
+}
+
 module "papi-managment" {
   source              = "git@github.com:TabbyC/cnp-module-api-mgmt?ref=remove_echo_api"
   
   location                                   = "${var.location}"
   env                                        = "${var.env}"
-  vnet_rg_name                               = "core-infra-${local.local_env}"
-  api_subnet_id                              = "core-infra-subnet-apimgmt-${local.local_env}"
+  vnet_rg_name                               = "${module.papi-vnet.resourcegroup_name}"
+  api_subnet_id                              = "${module.papi-vnet.subnet_ids.0}"
   publisher_email                            = "${data.azurerm_key_vault_secret.publisher_email.value}"
   # publisher_name
   # notification_sender_email
