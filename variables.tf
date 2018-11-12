@@ -57,3 +57,16 @@ variable "oauth_client_secret" {
   type    = "string"
   default = "xxxxxxxxx"
 }
+
+//// API Throttling
+variable "throttle_period" {
+  description = "Period of time, in seconds, between resets of the counter of requests"
+  type        = "string"
+  default     = "60"
+}
+
+variable "throttle_reqs_per_period" {
+  description = "Number of requests allowed per time period before a 429 is returned"
+  type        = "string"
+  default     = "1000"
+}
