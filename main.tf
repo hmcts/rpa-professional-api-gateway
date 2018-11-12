@@ -56,5 +56,7 @@ resource "azurerm_template_deployment" "papi-managment" {
     oauth_authorization_endpoint               = "${var.oauth_authorization_endpoint}"
     oauth_client_id                            = "${data.azurerm_key_vault_secret.oauth2_client.value}"
     oauth_client_secret                        = "${data.azurerm_key_vault_secret.oauth2_secret.value}"
+    throttle_period                            = "${var.throttle_period}"
+    throttle_reqs_per_period                   = "${var.throttle_reqs_per_period}"
   }
 }
