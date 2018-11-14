@@ -62,11 +62,11 @@ variable "oauth_client_secret" {
 variable "throttle_period" {
   description = "Period of time, in seconds, between resets of the counter of requests"
   type        = "string"
-  default     = "3600"
+  default     = "60"
 }
 
 variable "throttle_reqs_per_period" {
   description = "Number of requests allowed per time period before a 429 is returned"
   type        = "string"
-  default     = "1000"
+  default     = "100"
 }
