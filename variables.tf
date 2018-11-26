@@ -68,5 +68,5 @@ variable "throttle_period" {
 variable "throttle_reqs_per_period" {
   description = "Number of requests allowed per time period before a 429 is returned"
   type        = "string"
-  default     = "1000"
+  default     = "100"
 }
