@@ -19,7 +19,7 @@
     "type": "String"
   },
   "publisher_name": {
-    "defaultValue": "HMCTS Professional API",
+    "defaultValue": "HMCTS Professional",
     "type": "String"
   },
   "notification_sender_email": {
