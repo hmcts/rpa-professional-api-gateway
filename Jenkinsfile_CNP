@@ -14,3 +14,7 @@ onMaster {
 onDemo {
 //  withInfrastructurePipeline('rpa-professional-api', environment.demoName, 'nonprod')
 }
+
+onIthc {
+  withInfrastructurePipeline('rpa-professional-api', environment.ithcName, 'qa')
+}
